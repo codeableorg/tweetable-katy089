@@ -1,0 +1,7 @@
+    <%= form_with model: tweet_new  do |form| %>
+        <div class="tweet-new">
+            <%= form.text_area :body, placeholder: "Remember to thing before write...", rows: 3, class: "tweet-body"%>
+
+            <%= form.submit "Tweet", class: "button button--primary overline button-tweet"%>
+        </div>   
+    <% end %>

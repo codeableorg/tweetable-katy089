@@ -1,2 +1,9 @@
-<h1>Tweets#edit</h1>
-<p>Find me in app/views/tweets/edit.html.erb</p>
+<section class="section-md">
+  <div class="container-lg py-3 flex flex-column gap-1_5">
+    <div class="briefcase-header">
+      <h1 class="heaader__title">Edit Tweet</h1>
+
+      <%= render "comments_edit", tweet_new: @tweet_got %>
+    </div>
+  </div>
+</section>
