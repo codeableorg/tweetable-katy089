@@ -1,0 +1,12 @@
+<h1>Home</h1>
+<p>Find me in app/views/tweets/index.html.erb</p>
+<br>
+ <%= render "comment", tweet_new: @tweet_new, replied_to: nil %>
+
+<br>
+<% @tweets.each do |tweet| %>
+  <%= tweet.user.name%>
+  <%= tweet.body%>
+  <%= tweet.likes_count%>
+<% end %>%>
+<br>

@@ -1,0 +1,18 @@
+<h1>Tweets#show</h1>
+<p>Find me in app/views/tweets/show.html.erb</p>
+<br>
+  <%= @tweet_got.user.name%>
+  <%= @tweet_got.body%>
+  <%= @tweet_got.likes_count%>
+
+<br>
+<br>
+ <%= render "comment", tweet_new: @tweet_new, replied_to: nil %>
+<br>
+<br>
+
+<% @tweet_got.replies.each do |replie| %>
+  <%= replie.user.name%>
+  <%= replie.body%>
+  <%= replie.likes_count%>
+<% end %>
