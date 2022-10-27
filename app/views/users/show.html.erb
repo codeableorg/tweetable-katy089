@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<section class="section-md">
+  <div class="container-lg py-3 flex flex-column gap-1_5">
+    <div class="briefcase-header">
+      <h1 class="heaader__title">Profile</h1>
+
+      <%= render partial: "shared/tweet", collection: @tweets, as: :tweet %>
+    </div>
+  </div>
+</section>

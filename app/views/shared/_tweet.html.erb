@@ -1,0 +1,32 @@
+       <div class="tweet-card"><%= link_to tweet_path(tweet), class:"text-decoration-none" do%>
+         <div class="header-card">
+            <img src="" alt="">
+            <div>
+              <div class="header-card__data">
+                <span class="text-md text-gray-400 weight-700"><%= tweet.user.name%> </span>
+                <span class="text-md text-primary_darker ">@<%= tweet.user.username%></span>
+              </div>
+              <p class="text-sm text-gray-300"><%= time_ago_in_words(tweet.created_at)%> ago</p>
+              <!--second way --> <%#= tweet.created_at.ago_in_words%> 
+            </div>
+         </div>
+         <p class="body-card text-gray-400"><%= tweet.body%> </p>
+        <% end %>
+        <div class="footer-card">
+           <div class="footer-card__options">
+             <p class="text-md text-gray-400">button to delete and edit</p>
+           </div>
+           <div class=footer-card_icons>
+             <svg><use xlink:href="#comments"/></svg>
+             <%= tweet.replies_count%>
+           </div>
+          </div>
+        </div>
+
+  <div hidden>
+    <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="comments" viewBox="0 -5 24 22">
+      <path d="M6 9H6.01M10 9H10.01M14 9H14.01M19 9C19 13.4183 14.9706 17 10 17C8.46073 17 7.01172 16.6565 5.74467 16.0511L1 17L2.39499 13.28C1.51156 12.0423 1 10.5743 1 9C1 4.58172 5.02944 1 10 1C14.9706 1 19 4.58172 19 9Z" stroke="black"  stroke-linecap="round" stroke-linejoin="round" fill= "white" />
+      </symbol>
+    </svg>
+  </div>
