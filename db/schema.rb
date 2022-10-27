@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_26_215942) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_27_002752) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_215942) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tweet_id"], name: "index_likes_on_tweet_id"
+    t.index ["user_id", "tweet_id"], name: "index_likes_on_user_id_and_tweet_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -28,7 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_215942) do
     t.integer "replies_count", default: 0
     t.integer "likes_count", default: 0
     t.bigint "user_id", null: false
-    t.bigint "replied_to_id", null: true
+    t.bigint "replied_to_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["replied_to_id"], name: "index_tweets_on_replied_to_id"
@@ -41,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_215942) do
     t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "likes", "tweets"
