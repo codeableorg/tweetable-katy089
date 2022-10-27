@@ -65,4 +65,5 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+gem "devise"
 gem 'time_ago_in_words'
