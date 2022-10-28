@@ -66,4 +66,6 @@ group :development do
   # gem "spring"
 end
 gem "devise"
-gem 'time_ago_in_words'
+
+gem "omniauth-github", github: "omniauth/omniauth-github", branch: "master"
+gem "omniauth-rails_csrf_protection"
