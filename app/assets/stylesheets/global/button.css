@@ -83,8 +83,8 @@
 
 /* Buttons secondary - START */
 .button--secondary {
-  background-color: var(--primary-light);
-  color: var(--primary-darker);
+  background-color: var(--primary-regular);
+  color: var(--seconday-darker);
 }
 
 .button--secondary:hover {
@@ -92,7 +92,8 @@
 }
 
 .button--secondary:active {
-  background-color: var(--primary-dark);
+  background-color: var(--green-500);
+  color: var(--primary-light);
 }
 
 .button--secondary:focus {
