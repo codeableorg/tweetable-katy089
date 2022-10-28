@@ -4,11 +4,11 @@
       <h1 class="heaader__title">Profile</h1>
       <% if @user.avatar.attached? %>
       <div>
-        <%= image_tag @user.avatar, alt: "Image to #{@user.name}", class: "img-user profile" %>
+        <%= image_tag @user.avatar, alt: "Image to #{@user.name}", class: "profile" %>
       </div>
       <% else %>
       <div>
-        <%= image_tag "avatar.png", alt: "Empty image", class: "img-user profile" %>
+        <%= image_tag "avatar.png", alt: "Empty image", class: "profile" %>
       </div>
       <% end  %>
       <span class="head-xs semibold text-gray-400"><%= @user.name %></span>

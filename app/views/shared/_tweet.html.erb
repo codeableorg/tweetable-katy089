@@ -1,6 +1,14 @@
-       <div class="tweet-card"><%= link_to tweet_path(tweet), class:"text-decoration-none" do%>
+       <div class="tweet-card"><%= link_to tweet_path(tweet), class:"text-decoration-none flex flex-column gap-0\.5" do%>
          <div class="header-card">
-            <img src="" alt="">
+            <% if tweet.user.avatar.attached? %>
+              <div>
+                <%= image_tag tweet.user.avatar, alt: "Image to #{tweet.user.name}", class: "img-user" %>
+              </div>
+            <% else %>
+              <div>
+                <%= image_tag "avatar.png", alt: "Empty image", class: "img-user" %>
+              </div>
+            <% end %>
             <div>
               <div class="header-card__data">
                 <span class="text-md text-gray-400 weight-700"><%= tweet.user.name%> </span>
