@@ -111,3 +111,11 @@ font-weight: 700;
 textarea{
   border: white;
 }
+
+.center-text {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}

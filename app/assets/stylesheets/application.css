@@ -20,3 +20,6 @@
     padding: 0.6rem 1rem;
     align-self: flex-end;
  }
+  a{
+   text-decoration: none;
+  }
