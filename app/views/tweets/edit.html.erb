@@ -2,8 +2,10 @@
   <div class="container-lg py-3 flex flex-column gap-1_5">
     <div class="briefcase-header">
       <h1 class="heaader__title">Edit Tweet</h1>
-
-      <%= render "comments_edit", tweet_new: @tweet_got %>
+      
+       <div class="briefcase-summary__content">
+          <%= render "comments_edit", tweet_new: @tweet_got %>
+       </div>
     </div>
   </div>
 </section>
