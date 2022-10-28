@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   def index
     @tweets = Tweet.all.order(updated_at: :desc).where(replied_to_id: nil)
     @tweet_new = Tweet.new
