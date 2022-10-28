@@ -31,11 +31,18 @@
              </div>
              
                <div class="">
+               <% if current_user && Like.find_by(tweet_id: tweet.id, user_id: current_user.id) %>
+                 
+                 <%= button_to like_path(tweet), class: "button-like", method: :delete, data: {turbo: false} do%>
+                   <svg><use xlink:href="#likes"/></svg>
+                   <%= tweet.likes_count%>
+                 <% end  %>
+              <% else  %>
                <%= button_to likes_path(tweet: tweet), class: "button-like", data: {turbo: false} do%>
-                 <svg><use xlink:href="#likes"/></svg>
-                 <%= tweet.likes_count%>
-               <% end  %>
-
+                   <svg><use xlink:href="#nolikes"/></svg>
+                   <%= tweet.likes_count%>
+               <% end %>
+              <% end  %>
              </div>
            </div>
           </div>
@@ -50,9 +57,17 @@
   </div>
 
     <div hidden>
-    <svg width="24" height="22" viewBox="0 0 24 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <symbol id="likes" viewBox="0 -5 24 22">
-      <path d="M2.31802 2.31802C0.56066 4.07538 0.56066 6.92462 2.31802 8.68198L10.0001 16.364L17.682 8.68198C19.4393 6.92462 19.4393 4.07538 17.682 2.31802C15.9246 0.56066 13.0754 0.56066 11.318 2.31802L10.0001 3.63609L8.68198 2.31802C6.92462 0.56066 4.07538 0.56066 2.31802 2.31802Z" stroke="#D44A78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill ="white"/>
-      </symbol>
-    </svg>
-  </div>
+      <svg width="24" height="22" viewBox="0 0 24 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="likes" viewBox="0 -5 24 22">
+        <path d="M2.31802 2.31802C0.56066 4.07538 0.56066 6.92462 2.31802 8.68198L10.0001 16.364L17.682 8.68198C19.4393 6.92462 19.4393 4.07538 17.682 2.31802C15.9246 0.56066 13.0754 0.56066 11.318 2.31802L10.0001 3.63609L8.68198 2.31802C6.92462 0.56066 4.07538 0.56066 2.31802 2.31802Z" stroke="#D44A78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill ="white"/>
+        </symbol>
+      </svg>
+    </div>
+
+    <div hidden>
+      <svg width="24" height="22" viewBox="0 0 24 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="nolikes" viewBox="0 -5 24 22">
+        <path d="M2.31802 2.31802C0.56066 4.07538 0.56066 6.92462 2.31802 8.68198L10.0001 16.364L17.682 8.68198C19.4393 6.92462 19.4393 4.07538 17.682 2.31802C15.9246 0.56066 13.0754 0.56066 11.318 2.31802L10.0001 3.63609L8.68198 2.31802C6.92462 0.56066 4.07538 0.56066 2.31802 2.31802Z" stroke="#7A7A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="white"/>
+        </symbol>
+      </svg>
+    </div>
