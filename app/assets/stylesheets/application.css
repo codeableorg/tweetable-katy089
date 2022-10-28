@@ -20,6 +20,14 @@
     padding: 0.6rem 1rem;
     align-self: flex-end;
  }
+
+ .button-profile{
+   border-radius: .3rem;
+   margin: 0;
+   align-self: flex-end;
+   font-size: .9rem;
+}
+
   a{
    text-decoration: none;
   }

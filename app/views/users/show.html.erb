@@ -14,7 +14,7 @@
       <span class="head-xs semibold text-gray-400"><%= @user.name %></span>
       <span class="text-md text-gray-300 regular">@<%= @user.username %></span>
       <span class="text-md text-gray-300 regular">Join <%= @user.created_at.strftime('%B %d, %Y')  %></span>
-      <%= button_to "Edit Profile", edit_user_registration_path, method: :get %>
+      <%= button_to "Edit Profile", edit_user_registration_path, method: :get , class: "button button--primary overline button-profile"%>
 
     </div>
     <div class="briefcase-summary__content">
