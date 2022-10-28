@@ -1,0 +1,33 @@
+<h1 class="form__title">
+  Sign in to your account
+</h1>
+
+<div class="form__container">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field mb-4">
+    <%= f.label :email, class:"overline heading heading--xs content-sm font-form"%><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form__field", placeholder: "example@mail.com" %>
+  </div>
+
+  <div class="field mb-4">
+    <%= f.label :password, class:"overline heading heading--xl font-form" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class:"form__field", placeholder: "*********" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field mb-4">
+      <%= f.check_box :remember_me, class:"overline heading heading--xl" %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions mb-4">
+    <%= f.submit "Sign in", style:"width: 100%", class:"button button--primary button-sm" %>
+  </div>
+<% end %>
+
+ <div class="center-text">
+    Don’t have an account?<br><br>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
