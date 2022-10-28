@@ -100,6 +100,10 @@ font-weight: 700;
   gap: 1.5rem;
 }
 
+.center{
+ align-items: center;
+}
+
 .help{
   width: 12px;
   height: 12px;
