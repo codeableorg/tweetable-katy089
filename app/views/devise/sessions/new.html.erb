@@ -1,4 +1,4 @@
-<h1 class="form__title">
+<h1 class="form__title heading semibold">
   Sign in to your account
 </h1>
 
@@ -10,7 +10,7 @@
   </div>
 
   <div class="field mb-4">
-    <%= f.label :password, class:"overline heading heading--xl font-form" %><br />
+    <%= f.label :password, class:"overline heading heading--xs content-sm  font-form" %><br />
     <%= f.password_field :password, autocomplete: "current-password", class:"form__field", placeholder: "*********" %>
   </div>
 
@@ -26,8 +26,8 @@
   </div>
 <% end %>
 
- <div class="center-text">
-    Don’t have an account?<br><br>
+ <div class="center-text text-gray-400">
+    Don’t have an account?<br>
     <%= render "devise/shared/links" %>
   </div>
 </div>
