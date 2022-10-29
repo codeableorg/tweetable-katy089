@@ -1,34 +1,14 @@
 .footer {
-  background-color: var(--gray-100);
+  background-color: var(--primary-300);
 }
 
 .footer__content {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  gap: 10px;
-  padding: 3em 0;
-}
-
-.footer__content-link{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.footer__content-link-name{
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  padding: 0px;
-  gap: 4px;
-  text-decoration: none;
-  color: var(--secodary-500);
+  gap: 32px;
 }
 
-.footer__content-link-name svg {
-  width: 12px;
-  height: 12px;
+.items-center {
+  align-items: center;
 }
