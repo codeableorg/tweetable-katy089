@@ -28,19 +28,23 @@ class TweetsController < ApplicationController
 
   def edit
     @tweet_got = Tweet.find(params[:id])
+    authorize @tweet_got
     @tweet_parent = @tweet_got.replied_to
   end
 
   def update
     @tweet_new = Tweet.find(params[:id])
-
+    authorize @tweet_new
     @tweet_new.update(tweet_params)
 
     redirect_to root_path
   end
 
   def destroy
-
+    @tweet_new = Tweet.find(params[:id])
+    authorize @tweet_new
+    @tweet_new.destroy
+    redirect_to root_path
   end
 
   private
