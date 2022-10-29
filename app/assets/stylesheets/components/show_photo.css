@@ -10,7 +10,7 @@ gap: 1rem;
     gap: 1px;
 }
 textarea {
-    width: 383px;
+    width: auto;
     height: 80px;
     resize: none;
 }
