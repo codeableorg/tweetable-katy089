@@ -28,7 +28,7 @@
          <p class="body-card text-gray-400"><%= tweet.body%> </p>
         <% end %>
         <div class="footer-card">
-           <div class="footer-card__options">
+           <div class="footer-card__options flex gap-1">
            <% if policy(tweet).edit? && policy(tweet).destroy? %>
              <%= link_to tweet_path(tweet), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
                <svg><use xlink:href="#delete"/></svg>
@@ -38,7 +38,7 @@
              <% end  %>
            <% end %>
            </div>
-           <div class="footer-card_icons flex gap-1_5 " >
+           <div class="footer-card_icons flex gap-0-75 " >
              <div class="">
              <svg><use xlink:href="#comments"/></svg>
              <%= tweet.replies_count%>
