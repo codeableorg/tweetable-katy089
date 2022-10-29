@@ -2,7 +2,10 @@
   <div class="container-lg py-3 flex flex-column gap-1_5">
     <div class="briefcase-header">
       <h1 class="heaader__title">Home</h1>
+
+      <% if current_user %>
       <%= render "comment", tweet_new: @tweet_new, replied_to: nil %>
+      <% end %>
     </div>
 
     <div class="briefcase-summary__content">

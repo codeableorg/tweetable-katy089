@@ -6,7 +6,9 @@
 
       <%= render "shared/tweet", tweet: @tweet_got %>
 
-      <%= render "comment", tweet_new: @tweet_new, replied_to: @tweet_got %>
+      <% if current_user %>
+        <%= render "comment", tweet_new: @tweet_new, replied_to: nil %>
+      <% end %>
     </div>
 
     <div class="briefcase-summary__content">
