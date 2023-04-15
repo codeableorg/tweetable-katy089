@@ -4,7 +4,6 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all.order(updated_at: :desc).where(replied_to_id: nil)
     @tweet_new = Tweet.new
     @like_new = Like.new
-
   end
 
   def show
@@ -46,5 +45,4 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:body, :replied_to_id)
   end
-
 end
