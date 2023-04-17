@@ -1,0 +1,32 @@
+<header class="header">
+  <section class="flex center">
+  <%= link_to root_path do%>
+    <%= image_tag('logo.png') %>
+  <%end%>
+  </section>
+  <nav class="flex">
+    <input type="checkbox" name="menu-mobile" id="menu-mobile">
+    <div class="navbar__menu flex center">
+      <label class="cursor-pointer" for="menu-mobile" id="toggle-open">
+        <%= image_tag('menu-line.png', class: "icon-navbar")  %>  
+      </label>
+      <label class="cursor-pointer" for="menu-mobile" id="toggle-close">
+        <%= image_tag('close-fill.png', class: "icon-navbar" )  %>  
+      </label>
+    </div>
+    <% if user_signed_in? %>
+      <ul class="navbar__links center expandable gap-1 py-1 px-0">
+        <li class="link"><p>Thanks for using Tweetable!</p></li>
+        <li class="link text-primary_darker">
+          <%=link_to "Profile",user_path(current_user)%>
+        </li>
+        <li class="link"><%= button_to "LOG OUT", destroy_user_session_path, class: "button button--sm font-xs bg-gray text-white flex center radius-5 m-0" ,method: :delete, data: { turbo: false }%></li>
+      </ul>
+    <% else %>
+      <div class="navbar__login  flex-column center justify-center gap-1 expandable">
+        <p>Login to start the tweeting madness!</p>
+        <a class="button--sm button--primary radius-5 max-h-m flex center" href="./users/sign_in">Login</a>
+      </div>
+    <% end %>
+  </nav>
+</header>
