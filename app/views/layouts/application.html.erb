@@ -12,13 +12,8 @@
 
   <body>
     <%= render "shared/header" %>
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-       <% if user_signed_in? %>
-        Welcome <%= current_user.name %>
-        <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: false } %>
-      <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= render "shared/footer" %>
   </body>

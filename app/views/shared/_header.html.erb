@@ -11,7 +11,7 @@
       </label>
     </div>
     <input type="checkbox" name="menu-mobile" id="menu-mobile">
-    <% if current_user %>
+    <% if user_signed_in? %>
       <ul class="navbar__links center expandable gap-1 py-1 px-0">
         <li class="link"><p>Thanks for using Tweetable!</p></li>
         <li class="link text-primary_darker">
