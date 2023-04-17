@@ -54,35 +54,26 @@
 }
 
 #menu-mobile,
-#toggle-close,
-#toggle-open {
+#toggle-close {
   display: none;
 }
 
-@media only screen and (max-width: 560px) {
-  .expandable {
-    display: none;
-  }
+.expandable {
+  display: none;
+}
 
-  #menu-mobile:checked ~ .expandable {
-    display: flex;
-  }
+#menu-mobile:checked ~ .expandable {
+  display: flex;
+}
 
-  #toggle-close,
-  #toggle-open {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 1.2rem;
-    right: 1rem;
-    color: var(--white);
-    opacity: 1;
-    transition: opacity 1s linear;
-  }
+#menu-mobile:checked ~ * #toggle-open {
+  display: none;
+}
 
-  #menu-mobile:checked ~ * #toggle-open,
-  #menu-mobile:not(:checked) ~ * #toggle-close {
-    opacity: 0;
-  }
+#menu-mobile:checked ~ * #toggle-close {
+  display: flex;
+}
+
+#menu-mobile:not(:checked) ~ * #toggle-close {
+  display: none;
 }
