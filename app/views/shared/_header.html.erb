@@ -4,13 +4,16 @@
     <%= image_tag('logo.png') %>
   <%end%>
   </section>
-  <nav>
+  <nav class="flex">
+    <input type="checkbox" name="menu-mobile" id="menu-mobile">
     <div class="navbar__menu flex center">
-      <label for="menu-mobile">
+      <label class="cursor-pointer" for="menu-mobile" id="toggle-open">
         <%= image_tag('menu-line.png') %>  
       </label>
+      <label class="cursor-pointer" for="menu-mobile" id="toggle-close">
+        <%= image_tag('close-fill.png') %>  
+      </label>
     </div>
-    <input type="checkbox" name="menu-mobile" id="menu-mobile">
     <% if user_signed_in? %>
       <ul class="navbar__links center expandable gap-1 py-1 px-0">
         <li class="link"><p>Thanks for using Tweetable!</p></li>
