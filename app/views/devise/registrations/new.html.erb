@@ -1,31 +1,25 @@
 <h1 class="form__title heading semibold">
   Create an account
 </h1>
+
+<section class="scontainer-form">
 <div class="form__container">
-
-
-<h2 class="content-lg  overline center-text font-form", style="margin: 24px 16px">
+  <h2 class="content-lg  overline center-text font-form", style="margin: 24px 16px">
     Continue with
   </h2>
   <div class="github">
       <%- if devise_mapping.omniauthable? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
-          <%#= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %>
           <%= button_to "#{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), style:"width: 100%", class:"button button--secondary button-sm", method: :post, data: {turbo: false} %>
-
-          <%# form_with(url: omniauth_authorize_path(resource_name, provider), method: :post) do |form| %>
-          <%#= form.submit "Sign in with #{OmniAuth::Utils.camelize(provider)}" %>
-          <%# end  %>
-          
         <% end %>
       <% end %>
       <h2 class="content-lg overline center-text font-form", style="margin: 24px 16px">
-    Or
-  </h2>
+        Or
+      </h2>
   </div>
 
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   
   <div class="field mb-4">
@@ -64,12 +58,13 @@
   <div class="actions mb-4">
     <%= f.submit "Sign up", style:"width: 100%", class:"button button--primary button-sm" %>
   </div>
-<% end %>
+  <% end %>
 
 
- <div class="center-text text-gray-400">
+  <div class="center-text text-gray-400">
     Already a member?<br>
     <%= render "devise/shared/links" %>
   </div>
 </div>
 
+</section>
