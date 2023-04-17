@@ -77,3 +77,9 @@
 #menu-mobile:not(:checked) ~ * #toggle-close {
   display: none;
 }
+@media (min-width: 500px) {
+  .icon-navbar {
+    width: 28px;
+    height: 28px;
+  }
+}

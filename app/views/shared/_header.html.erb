@@ -8,10 +8,10 @@
     <input type="checkbox" name="menu-mobile" id="menu-mobile">
     <div class="navbar__menu flex center">
       <label class="cursor-pointer" for="menu-mobile" id="toggle-open">
-        <%= image_tag('menu-line.png') %>  
+        <%= image_tag('menu-line.png', class: "icon-navbar")  %>  
       </label>
       <label class="cursor-pointer" for="menu-mobile" id="toggle-close">
-        <%= image_tag('close-fill.png') %>  
+        <%= image_tag('close-fill.png', class: "icon-navbar" )  %>  
       </label>
     </div>
     <% if user_signed_in? %>
