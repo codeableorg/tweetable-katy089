@@ -8,8 +8,8 @@
   margin-bottom: 32px;
   font-weight: 400;
   line-height: 40px;
-  color: var(--green-900);
-  font-family: var(--font-primary);
+  color: #171717; 
+  font-family:#171717; 
 }
 
 .article h2 {
@@ -18,15 +18,15 @@
   line-height: 40px;
   margin-top: 56px;
   margin-bottom: 24px;
-  color: var(--green-900);
-  font-family: var(--font-primary);
+  color: var(--secodary-500);
+  font-family:#171717; 
 }
 
 .article p {
   margin: 24px 0;
   font-weight: 300;
   line-height: 32px;
-  color: var(--green-900);
+  color: #171717; 
 }
 
 .article strong {
@@ -34,7 +34,7 @@
 }
 
 .article a {
-  color: #3A824D;
+  color: #171717;     
   font-weight: 400;
 }
 
@@ -47,8 +47,8 @@
 
 .article blockquote {
   margin: 24px 0;
-  background-color: #77E297;
-  color: var(--green-900);
+  background-color: #171717; 
+  color: #171717; 
   padding: 16px 18px;
   font-weight: 400;
   line-height: 32px;
@@ -72,7 +72,7 @@
 }
 
 .article figcaption {
-  color: var(--green-900);
+  color: #171717; 
   font-size: 16px;
   font-weight: 300;
   line-height: 24px;

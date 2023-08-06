@@ -6,7 +6,7 @@
 
 .input, 
 .input-container__input {
-  color: var(--green-900);
+  color: #171717; 
   width: 100%;
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--gray-700);
@@ -83,7 +83,7 @@
 }
 
 .radio__input:checked {
-  border: 4px solid var(--green-600);
+  border: 4px solid var(--gray-800);
 }
 
 .radio__text-group, .checkbox__text-group {
@@ -92,7 +92,7 @@
 }
 
 .radio__label, .checkbox__label {
-  color: var(--green-900)
+  color: var(--gray-800);
 }
 
 .radio__help, .checkbox__help {

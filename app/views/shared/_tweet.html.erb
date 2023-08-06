@@ -3,13 +3,13 @@
             <% if tweet.user.avatar.attached? %>
               <div>
               <%= link_to user_path(tweet.user) do  %>
-                <%= image_tag tweet.user.avatar, alt: "Image to #{tweet.user.name}", class: "img-user" %>
+                <%= image_tag tweet.user.avatar, alt: "Image to #{tweet.user.name}", class: "photo-user" %>
               <% end  %>
               </div>
             <% else %>
               <div>
               <%= link_to user_path(tweet.user) do  %>
-                <%= image_tag "avatar.png", alt: "Empty image", class: "img-user" %>
+                <%= image_tag "avatar.png", alt: "Empty image", class: "photo-user" %>
               <% end  %>
               </div>
             <% end %>
