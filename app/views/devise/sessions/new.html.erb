@@ -1,0 +1,44 @@
+<h1 class="form__title heading semibold">
+  Sign in to your account
+</h1>
+
+<section class="scontainer-form">
+<div class="form__container">
+  <h2 class="content-lg  overline center-text font-form", style="margin: 24px 16px">
+    Continue with
+  </h2>
+  <div class="github">
+      <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+          <%= button_to "#{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), style:"width: 100%", class:"button button--secondary button-sm", method: :post, data: {turbo: false} %>
+          
+        <% end %>
+      <% end %>
+      <h2 class="content-lg overline center-text font-form", style="margin: 24px 16px">
+    Or
+  </h2>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field mb-4">
+      <%= f.label :email, class:"overline heading heading--xs content-sm font-form"%><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form__field", placeholder: "example@mail.com" %>
+    </div>
+
+    <div class="field mb-4">
+      <%= f.label :password, class:"overline heading heading--xs content-sm  font-form" %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class:"form__field", placeholder: "*********" %>
+    </div>
+
+    <div class="actions mb-4">
+      <%= f.submit "Sign in", style:"width: 100%", class:"button button--primary button-sm" %>
+    </div>
+  <% end %>
+
+  <div class="center-text text-gray-400">
+     Don’t have an account?<br>
+     <%= render "devise/shared/links" %>
+  </div>
+</div>
+
+</section>

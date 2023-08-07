@@ -1,0 +1,63 @@
+       <div class="tweet-card">
+         <div class="header-card">
+            <% if tweet.user.avatar.attached? %>
+              <div>
+              <%= link_to user_path(tweet.user) do  %>
+                <%= image_tag tweet.user.avatar, alt: "Image to #{tweet.user.name}", class: "photo-user" %>
+              <% end  %>
+              </div>
+            <% else %>
+              <div>
+              <%= link_to user_path(tweet.user) do  %>
+                <%= image_tag "avatar.png", alt: "Empty image", class: "photo-user" %>
+              <% end  %>
+              </div>
+            <% end %>
+            <div>
+              <div class="header-card__data">
+              <%= link_to user_path(tweet.user) do  %>
+                <span class="text-md text-gray-400 weight-700"><%= tweet.user.name%></span>
+                <span class="text-md text-primary_darker ">@<%= tweet.user.username%></span>
+              <% end  %>
+              </div>
+              <p class="text-sm text-gray-300"><%= time_ago_in_words(tweet.created_at)%> ago</p>
+              <!--second way --> <%#= tweet.created_at.ago_in_words%> 
+            </div>
+         </div>
+        <%= link_to tweet_path(tweet), class:"text-decoration-none flex flex-column gap-0\.5" do%> 
+         <p class="body-card text-gray-400"><%= tweet.body%> </p>
+        <% end %>
+        <div class="footer-card">
+           <div class="footer-card__options flex gap-1">
+           <% if policy(tweet).edit? && policy(tweet).destroy? %>
+             <%= link_to tweet_path(tweet), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+               <svg><use xlink:href="#delete"/></svg>
+             <% end  %>
+             <%= link_to edit_tweet_path(tweet) do %>
+               <svg><use xlink:href="#edit"/></svg>
+             <% end  %>
+           <% end %>
+           </div>
+           <div class="footer-card_icons flex gap-0-75 " >
+             <div class="">
+             <svg><use xlink:href="#comments"/></svg>
+             <%= tweet.replies_count%>
+             </div>
+             
+               <div class="">
+               <% if current_user && Like.find_by(tweet_id: tweet.id, user_id: current_user.id) %>
+                 
+                 <%= button_to like_path(tweet), class: "button-like", method: :delete, data: {turbo: false} do%>
+                   <svg><use xlink:href="#likes"/></svg>
+                   <%= tweet.likes_count%>
+                 <% end  %>
+              <% else  %>
+               <%= button_to likes_path(tweet: tweet), class: "button-like", data: {turbo: false} do%>
+                   <svg><use xlink:href="#nolikes"/></svg>
+                   <%= tweet.likes_count%>
+               <% end %>
+              <% end  %>
+             </div>
+           </div>
+          </div>
+        </div>

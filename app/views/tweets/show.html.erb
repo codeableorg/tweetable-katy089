@@ -1,10 +1,23 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @tweet %>
+<section class="section-md">
+  <div class="container-lg py-3 flex flex-column gap-1_5">
+    <div class="briefcase-header">
+      <h1 class="heaader__title">Tweets  Detail</h1>
 
-<div>
-  <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-  <%= link_to "Back to tweets", tweets_path %>
+      <%= render "shared/tweet", tweet: @tweet_got %>
 
-  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
-</div>
+      <% if current_user %>
+        <%= render "comment", tweet_new: @tweet_new, replied_to: @tweet_got %>
+      <% end %>
+    </div>
+
+    <div class="briefcase-summary__content">
+      <% @tweet_got.replies.each do |tweet| %>
+         <%= render "shared/tweet", tweet: tweet %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+
+<%= render "shared/icons_svg" %>

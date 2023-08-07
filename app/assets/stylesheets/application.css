@@ -13,15 +13,21 @@
  *= require_tree .
  *= require_self
  */
+ /* Overwrite button's atributes */
+ .button-tweet{
+    border-radius: .3rem;
+    margin: 0;
+    padding: 0.6rem 1rem;
+    align-self: flex-end;
+ }
 
-@import url("./global.css");
-@import url("./components/button.css");
-@import url("./components/input.css");
-@import url("./components/header.css");
-@import url("./components/footer.css");
-
-a {
-  /* color: var(--primary-500); */
-  color: var(--gray-300);
-  text-decoration: none;
+ .button-profile{
+   border-radius: .3rem;
+   margin: 0;
+   align-self: flex-end;
+   font-size: .9rem;
 }
+
+  a{
+   text-decoration: none;
+  }

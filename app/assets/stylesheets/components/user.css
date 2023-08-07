@@ -1,0 +1,17 @@
+.profile {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 3rem;
+}
+.img-user {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 2rem;
+}
+@media (min-width: 500px) {
+  .scontainer-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

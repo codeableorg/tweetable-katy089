@@ -1,62 +1,48 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[ show edit update destroy ]
-
-  # GET /tweets
+  skip_before_action :authenticate_user!, only: %i[index show]
   def index
-    @tweets = Tweet.all.order(created_at: :desc)
-    @tweet = Tweet.new
+    @tweets = Tweet.all.order(updated_at: :desc).where(replied_to_id: nil)
+    @tweet_new = Tweet.new
+    @like_new = Like.new
   end
 
-  # GET /tweets/1
   def show
-    @comment = Comment.new
-    @comments=@tweet.comments.order(created_at: :desc)
+    @tweet_new = Tweet.new
+    @tweet_got = Tweet.find(params[:id])
   end
 
-  # GET /tweets/new
-  def new
-    @tweet = Tweet.new
-  end
-
-  # GET /tweets/1/edit
-  def edit
-  end
-
-  # POST /tweets
   def create
-    @tweet = Tweet.new(tweet_params)
-    @tweet.user = current_user
+    @tweet_new = Tweet.new(tweet_params)
+    @tweet_new.user_id = current_user.id
+    @tweet_new.save
 
-    if @tweet.save
-      redirect_to "/", notice: "Tweet was successfully created."
-    else
-      render :new, status: :unprocessable_entity
-    end
+    redirect_to root_path
   end
 
-  # PATCH/PUT /tweets/1
+  def edit
+    @tweet_got = Tweet.find(params[:id])
+    authorize @tweet_got
+    @tweet_parent = @tweet_got.replied_to
+  end
+
   def update
-    if @tweet.update(tweet_params)
-      redirect_to @tweet, notice: "Tweet was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    @tweet_new = Tweet.find(params[:id])
+    authorize @tweet_new
+    @tweet_new.update(tweet_params)
+
+    redirect_to root_path
   end
 
-  # DELETE /tweets/1
   def destroy
-    @tweet.destroy
-    redirect_to "/", notice: "Tweet was successfully destroyed."
+    @tweet_new = Tweet.find(params[:id])
+    authorize @tweet_new
+    @tweet_new.destroy
+    redirect_to root_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def tweet_params
-      params.require(:tweet).permit(:body, :comments_count)
-    end
+  def tweet_params
+    params.require(:tweet).permit(:body, :replied_to_id)
+  end
 end

@@ -1,14 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<section class="section-md">
+  <div class="container-lg py-3 flex flex-column gap-1_5">
+    <div class="briefcase-header">
+      <h1 class="heaader__title">Home</h1>
 
-<h1>Tweets</h1>
+      <% if current_user %>
+      <%= render "comment", tweet_new: @tweet_new, replied_to: nil %>
+      <% end %>
+    </div>
 
-<div id="tweets">
-  <% @tweets.each do |tweet| %>
-    <%= render tweet %>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-    </p>
-  <% end %>
-</div>
+    <div class="briefcase-summary__content">
+      <% @tweets.each do |tweet| %>
+         <%= render "shared/tweet", tweet: tweet %>
+      <% end %>
+    </div>
+  </div>
+</section>
 
-<%= link_to "New tweet", new_tweet_path %>
+  <%= render "shared/icons_svg" %>

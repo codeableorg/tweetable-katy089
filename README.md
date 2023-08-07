@@ -1,24 +1,33 @@
-# README
+# Tweetable-App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ This app was made in rails (Front-end and Back-end).However, if you want to consume data, you can go to the branch api/devise_token. There's a insomnia's file where can see the EndPoints.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+For this project I used [rbenv](https://github.com/rbenv/rbenv) to manage gems.
 
-* System dependencies
+#### 1. Install all the project's gems
+```bash
+bundle install
+```
+#### 2. Create the database and setup
+```bash
+rails db:reset
+```
+#### 3. Raise the server.That's all
+```bash
+rails s
+```
+## Usage
 
-* Configuration
 
-* Database creation
+## Contributing
 
-* Database initialization
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
 
-* How to run the test suite
+Please make sure to update tests as appropriate.
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
 
-* Deployment instructions
-
-* ...
+[MIT](https://choosealicense.com/licenses/mit/)
